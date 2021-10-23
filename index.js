@@ -2,8 +2,23 @@ const inquirer = require("inquirer");
 const fs = require("fs");
 let year = new Date().getFullYear();
 
-const generateREADME = ({ answers }) =>
-  ` 
+const generateREADME = (answers) => {
+  let additionalProjectLinks = "";
+
+  if (answers.projectLinks) {
+    additionalProjectLinks = answers.projectLinks.split(",").join("<br>");
+  }
+
+  let screenshots = "";
+  if (answers.imageURL) {
+    for (let i = 0; i < answers.imageURL.split(",").length; i++) {
+      screenshots += `<kbd>![screenshot-demo${i + 1}](${answers.imageURL
+        .split(",")
+        [i].trim()})</kbd>`;
+    }
+  }
+
+  return ` 
 # ${answers.title.toUpperCase()}
 [![github-follow](https://img.shields.io/github/followers/${answers.username
     .trim()
@@ -88,6 +103,7 @@ Copyright © ${year} [${answers.authorName
     .toLowerCase()})
 
 `;
+};
 
 inquirer
   .prompt([
@@ -374,7 +390,7 @@ inquirer
   .then((answers) => {
     const readMeContent = generateREADME(answers);
 
-    fs.writeFile("index.html", htmlPageContent, (err) =>
-      err ? console.log(err) : console.log("Successfully created index.html!")
+    fs.writeFile("README.md", readMeContent, (err) =>
+      err ? console.log(err) : console.log("Successfully created README!")
     );
   });
