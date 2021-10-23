@@ -85,6 +85,7 @@ ${answers.test}
 ## Contributing
 ${answers.contributing}
 ## Questions
+${anwers.questions}
 Contact the author with any questions!<br>
 Github link: [${answers.username
     .trim()
