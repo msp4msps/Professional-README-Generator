@@ -113,8 +113,8 @@ inquirer
       message: "Enter your FULL name",
       name: "authorName",
       validate: function (name) {
-        let pass = name.match(/^[a-zA-Z]+ [a-zA-Z]+$/g);
-        if (pass) {
+        let validate = name.match(/^[a-zA-Z]+ [a-zA-Z]+$/g);
+        if (validate) {
           return true;
         }
 
@@ -127,8 +127,8 @@ inquirer
       message: "Enter your email",
       name: "email",
       validate: function (email) {
-        let pass = email.match(/\S+@\S+\.\S+/g);
-        if (pass) {
+        let validate = email.match(/\S+@\S+\.\S+/g);
+        if (validate) {
           return true;
         }
 
@@ -151,8 +151,7 @@ inquirer
     {
       // Github REPO name
       type: "input",
-      message:
-        "Enter your Project Github Repo name (* Be sure your input is the SAME as the REPO name on Github.)",
+      message: "Enter your Project Github Repo name",
       name: "repoName",
       validate: function (reponame) {
         if (reponame) {
@@ -167,7 +166,7 @@ inquirer
       type: "confirm",
       name: "isLinks",
       message:
-        "Besides the porject repo link, Would you like to add additional project link(s)?",
+        "Besides the project repo link, Would you like to add additional project link(s)?",
       default: false,
     },
     {
@@ -250,7 +249,7 @@ inquirer
     {
       // Project user-story
       type: "input",
-      message: "Provide the User Story for your propject",
+      message: "Provide the User Story for your project",
       name: "userStory",
       validate: function (userstory) {
         if (userstory) {
@@ -316,7 +315,7 @@ inquirer
     {
       // Tests
       type: "input",
-      message: "How to test your project?",
+      message: "How can others test your project?",
       name: "test",
       default: "npm test",
     },
@@ -330,7 +329,7 @@ inquirer
           return true;
         }
 
-        return "Not possible! Think again.";
+        return "Professional README's include contributions.";
       },
     },
     {
@@ -343,7 +342,7 @@ inquirer
           return true;
         }
 
-        return "Not possible! Think again.";
+        return "Professional README's include contact references.";
       },
     },
     {
