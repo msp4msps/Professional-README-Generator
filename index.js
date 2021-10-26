@@ -12,7 +12,7 @@ const generateREADME = (answers) => {
   let screenshots = "";
   if (answers.imageURL) {
     for (let i = 0; i < answers.imageURL.split(",").length; i++) {
-      screenshots += `<kbd>![screenshot-demo${i + 1}](${answers.imageURL
+      screenshots += `<kbd>![screenshot${i + 1}](${answers.imageURL
         .split(",")
         [i].trim()})</kbd>`;
     }
@@ -43,7 +43,7 @@ const generateREADME = (answers) => {
   }/)
 ## Table of Content
 * [ Project Links ](#Project-Links)
-* [ Screenshots-Demo ](#Screenshots)
+* [ Screenshots](#Screenshots)
 * [ Project Description ](#Project-Description)
 * [ User Story ](#User-Story)
 * [ Technologies ](#Technologies)
@@ -85,7 +85,7 @@ ${answers.test}
 ## Contributing
 ${answers.contributing}
 ## Questions
-${anwers.questions}
+${answers.questions}
 Contact the author with any questions!<br>
 Github link: [${answers.username
     .trim()
@@ -310,7 +310,7 @@ inquirer
           return true;
         }
 
-        return "Not possible! Think again.";
+        return "A professional README provides credits and refereneces to the project.";
       },
     },
     {
