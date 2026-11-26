@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/msp4msps/Professional-README-Generator#readme",
   "dependencies": {
-    "inquirer": "^8.2.0"
+    "inquirer": "^8.2.7"
   }
 }
